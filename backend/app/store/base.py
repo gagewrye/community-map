@@ -30,9 +30,11 @@ class EventStore(Protocol):
     def query_events(self, q: EventQuery, now: datetime) -> Page:
         """Sorted by startsAt asc then uri. Hides events with endsAt < (q.ends_after or now)."""
         ...
+
     def delete_expired(self, cutoff: datetime) -> list[str]:
         """Delete events whose endsAt < cutoff; return their URIs."""
         ...
+
     def list_tags(self, now: datetime) -> list[Count]: ...
     def list_groups(self, now: datetime) -> list[Count]: ...
 
@@ -56,6 +58,7 @@ class EventStore(Protocol):
     def add_notification(self, n: Notification) -> Notification:
         """Persist and return with id set."""
         ...
+
     def list_notifications(self, subscriber_id: str, since_id: int = 0) -> list[Notification]: ...
 
     # ingest cursors (e.g. Jetstream time_us)

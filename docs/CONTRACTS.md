@@ -14,7 +14,7 @@ The interfaces every module builds against. Change these only by agreement.
 
 `EventView` = `IndexedEvent` fields flattened: `{uri, cid, authorDid, authorHandle, source,
 name, description, startsAt, endsAt, location:{name,address,lat,lng}, tags, group, sourceUrl,
-indexedAt, updatedAt, status}` where `status` is `upcoming | live | ending_soon` (ending within 1h).
+createdAt, indexedAt, updatedAt, status}` where `status` is `upcoming | live | ending_soon` (ending within 1h).
 
 | Method | Path | Body / Query | Returns |
 |---|---|---|---|

@@ -11,7 +11,7 @@ class Settings(BaseSettings):
     jetstream_enabled: bool = False
     jetstream_url: str = "wss://jetstream2.us-east.bsky.network/subscribe"
     # Dev mode exposes POST /api/dev/records to simulate firehose commits locally.
-    dev_mode: bool = True
+    dev_mode: bool = False
     # Seconds between expiry sweeps; events are dropped once endsAt + grace has passed.
     expiry_interval_s: int = 60
     expiry_grace_s: int = 0
