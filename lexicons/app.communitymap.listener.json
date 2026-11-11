@@ -1,0 +1,20 @@
+{
+  "lexicon": 1,
+  "id": "app.communitymap.listener",
+  "description": "Links one of the author's events to their Bluesky posts: any post by the same author containing `hashtag` is attached to the event as an update.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["subject", "hashtag", "createdAt"],
+        "properties": {
+          "subject": { "type": "string", "format": "at-uri", "description": "at:// URI of an app.communitymap.event owned by the same DID." },
+          "hashtag": { "type": "string", "maxLength": 64, "description": "Without the leading #, case-insensitive." },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    }
+  }
+}

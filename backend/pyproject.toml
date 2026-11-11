@@ -1,0 +1,27 @@
+[project]
+name = "community-map-backend"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi==0.162.5",
+  "uvicorn[standard]==0.54.0",
+  "pydantic==2.14.3",
+  "pydantic-settings==2.16.2",
+  "websockets==17.4",
+  "httpx==0.28.1",
+  "icalendar==7.3.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "pytest-asyncio==1.4.1.post1", "ruff==0.17.4"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

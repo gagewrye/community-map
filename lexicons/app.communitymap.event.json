@@ -1,0 +1,36 @@
+{
+  "lexicon": 1,
+  "id": "app.communitymap.event",
+  "description": "A time-bounded community event or point of interest.",
+  "defs": {
+    "main": {
+      "type": "record",
+      "key": "tid",
+      "record": {
+        "type": "object",
+        "required": ["name", "startsAt", "endsAt", "location", "createdAt"],
+        "properties": {
+          "name": { "type": "string", "maxLength": 200, "minLength": 1 },
+          "description": { "type": "string", "maxLength": 3000 },
+          "startsAt": { "type": "string", "format": "datetime" },
+          "endsAt": { "type": "string", "format": "datetime", "description": "Event is removed from the index after this time (expiry)." },
+          "location": { "type": "ref", "ref": "#location" },
+          "tags": { "type": "array", "maxLength": 10, "items": { "type": "string", "maxLength": 32 } },
+          "group": { "type": "string", "maxLength": 100, "description": "Organizing club / org / business." },
+          "sourceUrl": { "type": "string", "format": "uri" },
+          "createdAt": { "type": "string", "format": "datetime" }
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "maxLength": 200 },
+        "address": { "type": "string", "maxLength": 300 },
+        "lat": { "type": "string", "description": "Decimal degrees as string (lexicons have no float type)." },
+        "lng": { "type": "string" }
+      }
+    }
+  }
+}
