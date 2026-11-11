@@ -1,0 +1,11 @@
+{
+  "name": "Community Map",
+  "short_name": "CommMap",
+  "description": "Campus events at UCSD, live.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b5cad",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

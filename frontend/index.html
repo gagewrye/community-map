@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Community Map — UCSD events</title>
+  <meta name="description" content="What's happening on campus right now: events from UCSD students and orgs.">
+  <meta name="theme-color" content="#0b5cad" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#10161f" media="(prefers-color-scheme: dark)">
+  <!-- API origin/prefix; empty = same origin ("/api/..."). -->
+  <meta name="cm-api-base" content="">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="icon" href="./icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to events</a>
+
+  <header class="site-header">
+    <h1 class="site-title">Community Map</h1>
+    <div id="account" class="account" aria-label="Account"></div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section id="filters" class="filters" role="search" aria-label="Filter events"></section>
+
+    <div class="tabs" role="tablist" aria-label="View">
+      <button type="button" role="tab" id="tab-list" data-tab="list" aria-controls="panel-list" aria-selected="true">List</button>
+      <button type="button" role="tab" id="tab-map" data-tab="map" aria-controls="panel-map" aria-selected="false" tabindex="-1">Map</button>
+    </div>
+
+    <div id="panel-list" role="tabpanel" aria-labelledby="tab-list">
+      <div id="list" class="list" aria-live="polite" aria-busy="true">
+        <p class="loading">Loading events…</p>
+      </div>
+    </div>
+    <div id="panel-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+      <div id="map"></div>
+    </div>
+  </main>
+
+  <div id="toasts" class="toasts" role="status" aria-live="polite"></div>
+  <noscript><p class="notice">Community Map needs JavaScript to load events.</p></noscript>
+</body>
+</html>
