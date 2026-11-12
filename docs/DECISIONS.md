@@ -39,4 +39,4 @@ These are the choices made in this prototype that go beyond the ADRs, with the m
 - **Login uses Bluesky app passwords, not OAuth.** OAuth is the right long-term choice but needs a hosted client-metadata document.
 - **There is no moderation or trust score yet.** We rely on Bluesky's account-level moderation.
 - **The iCal guard can be bypassed by DNS rebinding.** Pin the resolved IP before production.
-- **The UI is only checked by unit tests and headless screenshots.** There are no Playwright end-to-end tests yet.
+- **Bluesky login and the map tab aren't covered by the Playwright tests.** The tests use demo mode and simulate Bluesky posts with dev commits, so real login and the map are still unverified.

@@ -2,7 +2,7 @@
 
 Campus events on the AT Protocol. Students browse a feed of events near UCSD, filter by tag or org, and subscribe to get live updates. Hosts post events with their Bluesky account, so the data lives in their own PDS and not in our database.
 
-**Status:** working prototype. It has 98 backend tests and 81 frontend tests, and CI runs both.
+**Status:** working prototype. It has 98 backend tests, 81 frontend tests and 16 Playwright user-story tests, and CI runs all of them.
 
 ## Run it
 
@@ -17,6 +17,19 @@ CM_DB_PATH=data/demo.db CM_DEV_MODE=true ../.venv/bin/uvicorn app.main:app --rel
 `CM_DEV_MODE=true` turns on **Demo mode**: you can post events without a Bluesky account. Set `CM_JETSTREAM_ENABLED=true` to index real records from the network.
 
 Tests: `cd backend && ../.venv/bin/pytest` · `cd frontend && npm ci && npm test`
+
+User-story tests (Playwright; starts its own seeded server on :8100):
+```bash
+cd e2e && npm ci && npx playwright install chromium && npx playwright test
+```
+
+| User story | Spec |
+|---|---|
+| Student discovers and filters events (desktop + mobile) | `e2e/tests/discover.spec.js` |
+| Last-minute Larry: moves location, attendees notified live | `e2e/tests/last-minute-larry.spec.js` |
+| Host Henry: Bluesky hashtag post syncs to the event | `e2e/tests/host-henry.spec.js` |
+| Events expire gracefully | `e2e/tests/expiry.spec.js` |
+| Poor WiFi: cached feed while offline | `e2e/tests/offline.spec.js` |
 
 ## What it does
 

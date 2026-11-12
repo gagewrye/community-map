@@ -7,3 +7,5 @@ data/
 .ruff_cache/
 .DS_Store
 *.egg-info/
+e2e/test-results/
+e2e/playwright-report/
